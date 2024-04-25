@@ -1,49 +1,51 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
-class ProductTest {
-    Product product;
+public class ProductTest {
+    private Product product;
 
-    @BeforeEach
-    void setUp() {
-        product = new Product(1, "TestProduct", 19.99, "TestCategory", 100);
+    @Before
+    public void setUp() {
+        product = new Product(1, "Apple", 0.50, "Fruit", 100);
     }
 
     @Test
-    void testGetProductId() {
+    public void testGetters() {
         assertEquals(1, product.getProductId());
-    }
-
-    @Test
-    void testGetName() {
-        assertEquals("TestProduct", product.getName());
-    }
-
-    @Test
-    void testGetPrice() {
-        assertEquals(19.99, product.getPrice());
-    }
-
-    @Test
-    void testGetCategory() {
-        assertEquals("TestCategory", product.getCategory());
-    }
-
-    @Test
-    void testGetStockQuantity() {
+        assertEquals("Apple", product.getName());
+        assertEquals(0.50, product.getPrice(), 0.001);
+        assertEquals("Fruit", product.getCategory());
         assertEquals(100, product.getStockQuantity());
     }
 
     @Test
-    void testUpdatePrice() {
-        product.updatePrice(29.99);
-        assertEquals(29.99, product.getPrice());
+    public void testSetters() {
+        product.setProductId(2);
+        assertEquals(2, product.getProductId());
+
+        product.setName("Banana");
+        assertEquals("Banana", product.getName());
+
+        product.setPrice(0.70);
+        assertEquals(0.70, product.getPrice(), 0.001);
+
+        product.setCategory("Snack");
+        assertEquals("Snack", product.getCategory());
+
+        product.setStockQuantity(150);
+        assertEquals(150, product.getStockQuantity());
     }
 
     @Test
-    void testUpdateStockQuantity() {
-        product.updateStockQuantity(150);
-        assertEquals(150, product.getStockQuantity());
+    public void testUpdatePrice() {
+        product.updatePrice(0.60);
+        assertEquals(0.60, product.getPrice(), 0.001);
+    }
+
+    @Test
+    public void testUpdateStockQuantity() {
+        product.updateStockQuantity(120);
+        assertEquals(120, product.getStockQuantity());
     }
 }

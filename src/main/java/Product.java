@@ -13,31 +13,21 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
-    public int getProductId() {
-        return productId;
-    }
+    // Getter-Methoden
+    public int getProductId() { return productId; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public String getCategory() { return category; }
+    public int getStockQuantity() { return stockQuantity; }
 
-    public String getName() {
-        return name;
-    }
+    // Setter-Methoden
+    public void setProductId(int productId) { this.productId = productId; }
+    public void setName(String name) { this.name = name; }
+    public void setPrice(double price) { this.price = price; }
+    public void setCategory(String category) { this.category = category; }
+    public void setStockQuantity(int stockQuantity) { this.stockQuantity = stockQuantity; }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public int getStockQuantity() {
-        return stockQuantity;
-    }
-
-    public void updatePrice(double newPrice) {
-        this.price = newPrice;
-    }
-
-    public void updateStockQuantity(int newQuantity) {
-        this.stockQuantity = newQuantity;
-    }
+    // Aktualisierungsmethoden
+    public void updatePrice(double newPrice) { this.price = newPrice; }
+    public void updateStockQuantity(int newQuantity) { this.stockQuantity = newQuantity; }
 }
